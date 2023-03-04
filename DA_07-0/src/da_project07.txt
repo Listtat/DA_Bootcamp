@@ -1,0 +1,6 @@
+1) 20000
+2) 5359
+3) 32864
+4) 5595
+5) 7.95
+6) computers.components.sound_card

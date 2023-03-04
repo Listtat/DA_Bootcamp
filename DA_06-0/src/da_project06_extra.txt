@@ -1,0 +1,11 @@
+Средний чек у людей, которые НЕ купили видеокарту: 107,53
+Средний чек у людей, которые купили видеокарту: 365,40
+
+
+SELECT flag_2, AVG(my_sum)
+FROM (SELECT c1, SUM(c8::DOUBLE PRECISION) AS my_sum, MAX(flag) as flag_2
+      FROM (SELECT c1, c8, (CASE WHEN c6 = 'computers.components.videocards' THEN 1 ELSE 0 END) AS flag
+            FROM da_project05_purch
+            WHERE c1 IS NOT NULL) t1
+      GROUP BY c1) t2
+GROUP BY flag_2
